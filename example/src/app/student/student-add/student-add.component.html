@@ -1,0 +1,75 @@
+<div class="page-title">
+    <h2 class="font-weight-bold">Create Student</h2>
+  </div>
+  <div class="page-content">
+    <form [formGroup]="studentForm">
+        <div class="modal-body">
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-md-6">
+                        <label for="inputAddress">ID</label>
+                <input type="text" [ngClass]="isControlHasError('id','required')?'alert-danger':''" 
+                class="form-control" id="id" formControlName="id" placeholder="ID" autocomplete="off">
+                <label *ngIf="isControlHasError('id','required')"><strong>ID</strong> is required  </label>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="inputAddress">Name</label>
+                        <input type="text" [ngClass]="isControlHasError('name','required')?'alert-danger':''" 
+                        class="form-control" id="name" formControlName="name" placeholder="Name"  autocomplete="off">
+                        <label *ngIf="isControlHasError('name','required')"><strong>Name</strong> is required  </label>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="inputAddress">Address</label>
+                <input type="text" [ngClass]="isControlHasError('address','required')?'alert-danger':''" 
+                class="form-control" id="address" formControlName="address" placeholder="Address"  autocomplete="off">
+                <label *ngIf="isControlHasError('address','required')"><strong>Address</strong> is required  </label>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-md-6">
+                        <label for="inputAddress">Mobile</label>
+                        <input type="text" [ngClass]="isControlHasError('mobile','required')?'alert-danger':''" 
+                        class="form-control" id="mobile" formControlName="mobile" placeholder="Mobile"  autocomplete="off">
+                        <label *ngIf="isControlHasError('mobile','pattern')"><strong>Only digits</strong> are acceptable  </label>
+                        <label *ngIf="isControlHasError('mobile','minlength')"><strong>Mobile Number</strong>  should be 10 digits long </label>
+                        <label *ngIf="isControlHasError('mobile','required')"><strong>Mobile</strong> is required  </label>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <label for="inputAddress">Email</label>
+                <input type="email" [ngClass]="isControlHasError('email','required')?'alert-danger':''" 
+                class="form-control" id="email" formControlName="email" placeholder="Email">
+                <label *ngIf="isControlHasError('email','required')"><strong>Email</strong> is required  </label>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-md-6">
+                        <label for="inputAddress">Pin Code</label>
+                        <input type="text" [ngClass]="isControlHasError('pincode','required')?'alert-danger':''" 
+                        class="form-control" id="pincode" formControlName="pincode" placeholder="PIN Code"  autocomplete="off" maxlength="6">
+                        <label *ngIf="isControlHasError('pincode','required')"><strong>Pin Code</strong> is required  </label>
+                        <label *ngIf="isControlHasError('pincode','pattern')"><strong>Only digits</strong> are acceptable  </label>
+                        <label *ngIf="isControlHasError('pincode','minlength')"><strong>Pin Code</strong>  should be 6 digits long </label>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <label for="inputAddress">URL</label>
+                <input type="url" [ngClass]="isControlHasError('url','required')?'alert-danger':''" 
+                class="form-control" id="url" formControlName="url" placeholder="Url">
+                <label *ngIf="isControlHasError('url','required')"><strong>Url</strong> is required  </label>
+            </div>
+            <br>
+            <div class="btn-view">
+                <button type="submit" class="btn btn-sm btn-primary" (click)="saveStudent()" [disabled]="!studentForm.valid || this.saveClicked">
+                    <i class="fa fa-spin fa-spinner" *ngIf="saveClicked"></i>&nbsp;Submit</button>
+                <button type="button" class="btn btn-sm btn-outline-primary" (click)="closeModal()" *ngIf="!saveClicked">Cancel</button>
+            </div>
+        </div>
+    </form>
+</div>
+
+

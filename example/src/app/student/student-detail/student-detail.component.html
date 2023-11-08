@@ -1,0 +1,84 @@
+<div class="page-title">
+    <h2 class="font-weight-bold"> Student Detail</h2>
+</div>
+  <div class="row">
+    <div class="col-md-6 col-sm-3">
+    </div>
+    <div class="col-sm-4 offset-md-2 text-right">
+        <button type="button" class="btn btn-sm btn-outline-primary" (click)="closeModal()">Back</button>
+    </div> 
+  </div>
+  <div class="page-content">
+    <form>
+      <div class="modal-body">
+        <div class="form-group">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="font-weight-bold">
+                      ID
+                    </div>
+                    <div class="mt-2">
+                      {{this.student.id}}
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="font-weight-bold">
+                        Name
+                    </div>
+                    <div class="mt-2">
+                        {{this.student.name}}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="font-weight-bold">
+                        Address
+                    </div>
+                    <div class="mt-2">
+                        {{this.student.address}}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="font-weight-bold">
+                        Mobile
+                    </div>
+                    <div class="mt-2">
+                        {{this.student.mobile}}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="font-weight-bold">
+                        Email
+                    </div>
+                    <div class="mt-2">
+                        {{this.student.email}}
+                    </div>
+                </div>
+        <div class="form-group">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="font-weight-bold">
+                        Pin Code
+                    </div>
+                    <div class="mt-2">
+                        {{this.student.pincode}}
+                    </div>
+                </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+      </div>
+    </form>
+  </div>

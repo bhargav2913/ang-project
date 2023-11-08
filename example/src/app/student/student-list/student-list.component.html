@@ -1,0 +1,46 @@
+<h2 class="section-title">Students</h2>
+<div class="custom-table">
+  <div class="table-filters">
+    <div class="row">
+      <div class="col-md-2 col-sm-3">
+    </div>
+    <div class="col-md-2 col-sm-3">
+    </div>
+    <div class="col-md-2 col-sm-3 ">
+    </div> 
+    <div class="col-sm-4 offset-md-2 text-right">
+      <button type="button" class="btn btn-sm btn-outline-primary" routerLink="Student/Add">Create Student</button>
+    </div>
+    <div class="col-sm-4 offset-md-2 text-right">
+      <button type="button" class="btn btn-sm btn-outline-primary" routerLink="Video/Play">Video</button>
+    </div>
+  </div>
+</div>
+
+<div class="table-responsive">
+    <table class="table">
+      <thead>
+        <tr>
+          <th width="5%" style="text-align:center;">S.No</th>
+          <th width="40%">List Of Students</th>
+          <th width="40%">Address</th>
+          <th width="40%">Pincode</th>
+          <th style="text-align: right;">Manage</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let student of students let i=index">
+          <td width="5%" style="text-align:center;">{{i+1}}</td>
+          <td width="40%">{{student.name}}</td>
+          <td width="40%">{{student.address}}</td>
+          <td width="40%">{{student.pincode}}</td>
+          <td style="text-align: right;">
+            <a href="javascript:;" class="text-success mr-2" routerLink="Student/Detail/{{student.id}}">Detail</a>
+            <a href="javascript:;" class="text-primary mr-2" routerLink="Student/Edit/{{student.id}}">Edit</a>
+            <a href="javascript:;" class="text-warning" (click)="deleteStudent(student.id)">Delete</a>
+            <a href="javascript:;" class="text-warning" (click)="playVideo(student.url)">Play</a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+

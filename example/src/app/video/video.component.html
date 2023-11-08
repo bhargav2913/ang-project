@@ -1,0 +1,62 @@
+<nav class = "navbar navbar-light bg-light">
+  <div class="container">
+    <span class="navbar-brand display-h1 text-danger">{{title}}</span>
+  </div>
+  </nav>
+
+<div class = "container my-3">
+  <div class ="row g-3">
+    <div class="col-md-3">
+      <label for="keyword" class="form-label">Search Keyword</label>
+      <input type="text" class="form-control" id="keyword" placeholder="Enter keyword.."[(ngModel)]="search.keyword">
+    </div>
+    <div class="col-md-3">
+    <label for="keyword" class="form-label">Channel ID</label>
+      <input type="text" class="form-control" id="channelid" placeholder="Enter channelid.."[(ngModel)]="search.channelId">
+    </div>
+    <div class="col-md-3">
+      <label for="keyword" class="form-label">Resource Type</label>
+      <select id="type" class="form-select"[(ngModel)]="search.type">
+        <option selected value="">Choose Type</option>
+        <option value="channel">Channel</option>
+        <option value="playlist">Playlist</option>
+        <option value="video">Video</option>
+      </select>
+    </div>
+    <div class="col-md-3">
+      <label for="keyword" class="form-label">Max. Results (1 to 50)</label>
+      <input type="text" class="form-control" id="maxresults" min="1" max="50" [(ngModel)]="search.maxResults">
+    </div>
+    <div class="col-12">
+      <button type="submit" class="btn btn-primary" (click)="searchYoutube()">Search Youtube</button>
+    </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <hr>
+    <div class="row" *ngIf="isLoading">
+      <div class="spinner-border text-danger" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+    </div>
+    <div class="row" *ngIf="!isLoading && error">
+      <p class="text-danger">Error: {{error}}</p> 
+    </div>
+    <div class="row my-2 g-3 row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4" *ngIf="!isLoading && response.items">
+      <div class="col" *ngFor="let item of response.items; let i=index">
+        <div class="card h-100">
+          <div class="ratio ratio-4x3">
+            <iframe class="embed-responsive-item" [src]="getVideoSource(item.id.videoId)" allowfullscreen></iframe>
+          </div>
+          <div class="card-body">
+            <h5 class="card-title text-truncate">{{item.snippet.title}}</h5>
+          </div>
+          <div class="card-footer">
+            <span class="float-end">{{item.id.kind}} | ID: {{item.id.videoId}}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
